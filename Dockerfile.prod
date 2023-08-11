@@ -1,0 +1,8 @@
+FROM 3.12.0rc1-alpine3.18
+ENV PORT=8000
+EXPOSE ${PORT}
+WORKDIR /code
+COPY ./requirements.txt /code/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+COPY . /code
+CMD ["hypercorn", "--bind", "0.0.0.0:$PORT", "--env-file", ".env", "app.server:app"]
