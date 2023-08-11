@@ -3,10 +3,10 @@ services:
   app:
     build:
       context: .
-      dockerfile: ./Dockerfile.prod
+      dockerfile: ./Dockerfile
     networks:
-      - visimanagementapi_tiers
+      - visimanagementapi_dev
 
 networks:
-  visimanagementapi_tiers:
+  visimanagementapi_dev:
     driver: bridge
