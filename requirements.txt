@@ -4,3 +4,4 @@ sqlalchemy
 sqlmodel
 pymysql
 hypercorn
+python-dotenv
