@@ -5,3 +5,4 @@ sqlmodel
 pymysql
 hypercorn
 python-dotenv
+pydantic[email]
