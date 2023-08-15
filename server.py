@@ -1,11 +1,11 @@
 from fastapi import FastAPI, status
+from core.settings import settings
 
-#TODO configure with the settings
 app = FastAPI(
-    title= "Visit Management Services",
-    description="Service will handle request/response for the mobile and the web application",
-    summary= "The service allows the employees to register and manage visits from guests to their office location",
-    version= "v0.0.1",
+    title= settings.project_title,
+    description=settings.project_description,
+    summary= settings.project_summary,
+    version= settings.project_version
 )
 
 @app.get("/",tags=["Home"],description="home endpoint",status_code=status.HTTP_200_OK)

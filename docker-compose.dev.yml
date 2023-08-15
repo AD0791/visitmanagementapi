@@ -26,12 +26,14 @@ services:
       - .env
     environment:
       MYSQL_DATABASE: ${DB_NAME}
-      MYSQL_USER: ${DB_USER}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_HOST: ${DB_HOST}
     expose:
       - 3306
 
 networks:
   visimanagementapi_dev:
     driver: bridge
+
+volumes:
+  db_data:
