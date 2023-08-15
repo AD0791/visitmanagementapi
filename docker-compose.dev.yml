@@ -11,8 +11,26 @@ services:
       - .env
     ports:
       - 8000:8000
+    restart: unless-stopped
+    depends_on:
+      - db
     networks:
       - visimanagementapi_dev
+
+  db:
+    image: mysql:8.0
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    env_file:
+      - .env
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    expose:
+      - 3306
 
 networks:
   visimanagementapi_dev:
