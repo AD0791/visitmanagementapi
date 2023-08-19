@@ -6,3 +6,4 @@ pymysql
 hypercorn
 python-dotenv
 pydantic[email]
+alembic
